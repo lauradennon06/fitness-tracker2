@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function ActivityList({ activities }) {
   return (
     <ul>
@@ -9,9 +11,5 @@ export default function ActivityList({ activities }) {
 }
 
 function ActivityListItem({ activity }) {
-  return (
-    <li>
-      <p>{activity.name}</p>
-    </li>
-  );
+  return <Link to={`/activities/${activity.id}`}>{activity.name}</Link>;
 }

@@ -8,8 +8,12 @@ export default function ActivitiesPage() {
   const [activities, setActivities] = useState([]);
 
   const syncActivities = async () => {
-    const data = await getActivities();
-    setActivities(data);
+    try {
+      const data = await getActivities();
+      setActivities(data);
+    } catch (error) {
+      console.error("Failed to fetch activities:", error);
+    }
   };
 
   useEffect(() => {

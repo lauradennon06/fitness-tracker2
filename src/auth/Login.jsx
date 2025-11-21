@@ -16,7 +16,7 @@ export default function Login() {
     const password = formData.get("password");
     try {
       await login({ username, password });
-      navigate("activities");
+      navigate("/activities");
     } catch (e) {
       setError(e.message);
     }
@@ -25,7 +25,7 @@ export default function Login() {
   return (
     <>
       <h1>Log in to your account</h1>
-      <form action={tryLogin}>
+      <form onSubmit={tryLogin}>
         <label>
           Username
           <input type="text" name="username" required />
@@ -37,8 +37,8 @@ export default function Login() {
         <button>Login</button>
         {error && <p role="alert">{error}</p>}
       </form>
-      <p Link to="/register">
-        Don't have an account? <Link to="/register">Register here</Link>
+      <p>
+        Don't have an account? <Link to="/signup">Sign up here</Link>.
       </p>
     </>
   );
